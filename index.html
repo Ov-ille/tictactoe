@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <!-- Content Type Meta tag -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <!--Responsive Viewport Meta tag-->
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+        <title>Tic Tac Toe</title>
+
+        <!-- Roboto font embed -->
+        <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+                integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+                crossorigin="anonymous">
+
+        <!-- Stylesheets -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+        <div id="main">
+                <div id="div-start-hide">
+                        <div id="div-start">
+                                <div id="div-select">
+                                        <h5> SELECT YOUR CHARACTER:</h1>
+                                </div>
+                                <table id="table-character">
+                                        <tr>
+                                                <td><img src="pics\01.jpg" alt="character 1" class="img-char"
+                                                                id="img-char1">
+                                                </td>
+                                                <td><img src="pics\02.jpg" alt="character 2" class="img-char"
+                                                                id="img-char2">
+                                                </td>
+                                                <td><img src="pics\03.jpg" alt="character 3" class="img-char"
+                                                                id="img-char3">
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td><img src="pics\04.jpg" alt="character 4" class="img-char"
+                                                                id="img-char4">
+                                                </td>
+                                                <td><img src="pics\05.jpg" alt="character 5" class="img-char"
+                                                                id="img-char5">
+                                                </td>
+                                                <td><img src="pics\06.jpg" alt="character 6" class="img-char"
+                                                                id="img-char6">
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td><img src="pics\07.jpg" alt="character 7" class="img-char"
+                                                                id="img-char7">
+                                                </td>
+                                                <td><img src="pics\08.jpg" alt="character 8" class="img-char"
+                                                                id="img-char8">
+                                                </td>
+                                                <td><img src="pics\09.jpg" alt="character 9" class="img-char"
+                                                                id="img-char9">
+                                                </td>
+                                        </tr>
+                                </table>
+                                <button class="btn" type="button" id="btn-start" disabled>START GAME</button>
+                        </div>
+                </div>
+
+                <div id="div-game-hide" class="display-none">
+                        <div id="div-game">
+                                <table id="table-game">
+                                        <tr>
+                                                <td id="td-game-1" class="game-field free td-hover"><img src=""
+                                                                alt="cell 1" class="img-game-char" id="img-game-char1">
+                                                </td>
+                                                <td id="td-game-2" class="game-field free td-hover"><img src=""
+                                                                alt="cell 2" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char2">
+                                                </td>
+                                                <td id="td-game-3" class="game-field free td-hover"><img src=""
+                                                                alt="cell 3" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char3">
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td id="td-game-4" class="game-field free td-hover"><img src=""
+                                                                alt="cell 4" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char4">
+                                                </td>
+                                                <td id="td-game-5" class="game-field free td-hover"><img src=""
+                                                                alt="cell 5" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char5">
+                                                </td>
+                                                <td id="td-game-6" class="game-field free td-hover"><img src=""
+                                                                alt="cell 6" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char6">
+                                                </td>
+                                        </tr>
+                                        <tr>
+                                                <td id="td-game-7" class="game-field free td-hover"><img src=""
+                                                                alt="cell 7" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char7">
+                                                </td>
+                                                <td id="td-game-8" class="game-field free td-hover"><img src=""
+                                                                alt="cell 8" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char8">
+                                                </td>
+                                                <td id="td-game-9" class="game-field free td-hover"><img src=""
+                                                                alt="cell 9" class="img-game-char img-game-char-hover"
+                                                                id="img-game-char9">
+                                                </td>
+                                        </tr>
+
+                                </table>
+                                <div id="overlay-hide" class="display-none">
+                                        <div id="overlay">
+                                                <div id="end-text">ENDTEXT
+                                                </div>
+                                        </div>
+                                </div>
+                                <button class="btn" type="button" id="btn-restart" disabled>RESTART</button>
+
+                        </div>
+                </div>
+
+        </div>
+
+        <!-- JavaScripts -->
+        <script src="main.js"></script>
+</body>
+
+</html>

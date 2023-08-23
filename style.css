@@ -1,0 +1,157 @@
+/* IMAGES: <a href="https://www.freepik.com/free-vector/large-set-wildlife-with-many-types-animals_7042428.htm#query=animal%20clipart&position=40&from_view=keyword&track=ais">Image by brgfx</a> on Freepik */
+
+#main {
+    padding: 5px;
+    background-color: rgb(144, 176, 184);
+    height: 100vh
+}
+
+#div-start,
+#div-game {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: bisque;
+}
+
+.display-none {
+    display: none
+}
+
+#div-select {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#table-character {
+    width: 80%;
+    max-width: 70vh;
+    border-collapse: separate;
+}
+
+#table-game {
+    width: 80%;
+    max-width: 70vh;
+    border-collapse: collapse;
+}
+
+td {
+    border: 2px solid rgb(134, 134, 134);
+}
+
+#table-game td {
+    border: 2px solid black;
+}
+
+#table-game tr:first-child td {
+    border-top: 0;
+}
+
+#table-game tr:last-child td {
+    border-bottom: 0;
+}
+
+#table-game tr td:first-child,
+#table-game tr th:first-child {
+    border-left: 0;
+}
+
+#table-game tr td:last-child,
+#table-game tr th:last-child {
+    border-right: 0;
+}
+
+td {
+    padding: 0;
+    width: 33.33%;
+    height: 0;
+    padding-bottom: 33.33%;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.td-selected {
+    border: 2px solid black
+}
+
+.img-char,
+.img-game-char {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px;
+}
+
+.img-char {
+    opacity: 0.3;
+}
+
+.img-char:hover {
+    opacity: 0.6;
+}
+
+.img-char-selected,
+.img-char-selected:hover {
+    opacity: 1
+}
+
+#table-game td {
+    opacity: 0;
+}
+
+#table-game .td-hover:hover {
+    opacity: 0.3;
+}
+
+#table-game .td-game-selected {
+    opacity: 1;
+}
+
+
+
+#btn-start,
+#btn-restart {
+    background-color: rgb(78, 117, 111);
+    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: azure;
+}
+
+#btn-start:hover:enabled,
+#btn-restart:hover {
+    background-color: rgb(53, 80, 76);
+}
+
+#div-game {
+    padding-top: 30px
+}
+
+#overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 2;
+}
+
+#end-text {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+    font-size: 1.5rem;
+}
