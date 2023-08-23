@@ -34,6 +34,10 @@ function startGame() {
     // intial board (9 = empty, 1 = human, 0 = ai)
     origBoard = [9, 9, 9, 9, 9, 9, 9, 9, 9];
 
+    Array.from(allFields).forEach(element => {
+        element.addEventListener('click', nextTurn, false);
+    });
+
     // set game pictures to human character
     Array.from(imgsGame).forEach(element => {
         element.src = selectedChar
@@ -58,6 +62,9 @@ function restartGame() {
         element.classList.add("td-hover", "free");
         element.classList.remove("td-game-selected", "ai", "human");
     });
+    Array.from(allFields).forEach(element => {
+        element.addEventListener('click', nextTurn, false);
+    });
 
 }
 
@@ -69,6 +76,7 @@ function nextTurn() {
     // human turn
     this.classList.add("td-game-selected", "human")
     this.classList.remove("td-hover", "free")
+    this.removeEventListener("click", nextTurn, false)
 
     origBoard[Number(this.firstChild.id.split("char")[1]) - 1] = 1
     let winTie = checkWinTie(origBoard)
@@ -115,6 +123,7 @@ function bestMoveAI() {
         nextTd.firstChild.src = AIChar
         nextTd.classList.add("td-game-selected", "ai")
         nextTd.classList.remove("td-hover", "free")
+        nextTd.removeEventListener("click", nextTurn, false)
         document.getElementById("overlay-wait-hide").classList.add("display-none")
         winTie = checkWinTie(origBoard)
         endGame(winTie)
@@ -247,6 +256,4 @@ function checkWinTie(board) {
 
 
 
-Array.from(allFields).forEach(element => {
-    element.addEventListener('click', nextTurn, false);
-});
+
