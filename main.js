@@ -74,10 +74,8 @@ function nextTurn() {
     let winTie = checkWinTie(origBoard)
     endGame(winTie)
 
-    if (winTie == false) {
+    if (winTie === false) {
         bestMoveAI()
-        winTie = checkWinTie(origBoard)
-        endGame(winTie)
     }
 }
 
@@ -104,13 +102,49 @@ function endGame(winTie) {
 
 
 function bestMoveAI() {
-    let minimaxResult = minimax(0, origBoard)
-    let nextTd = document.getElementById("td-game-" + String(minimaxResult.index + 1))
-    origBoard[minimaxResult.index] = 0
-    nextTd.firstChild.src = AIChar
-    nextTd.classList.add("td-game-selected", "ai")
-    nextTd.classList.remove("td-hover", "free")
+
+    async function moveAI() {
+
+        let minimaxPromise = new Promise((resolve, reject) => {
+            setTimeout(() => resolve(minimax(0, origBoard)), 50)
+        });
+
+        let minimaxResult = await minimaxPromise; // wait until the promise resolves (*)
+        let nextTd = document.getElementById("td-game-" + String(minimaxResult.index + 1))
+        origBoard[minimaxResult.index] = 0
+        nextTd.firstChild.src = AIChar
+        nextTd.classList.add("td-game-selected", "ai")
+        nextTd.classList.remove("td-hover", "free")
+        document.getElementById("overlay-wait-hide").classList.add("display-none")
+        winTie = checkWinTie(origBoard)
+        endGame(winTie)
+    }
+
+
+
+    async function showSpinner() {
+        let myPromise = new Promise(function (resolve, reject) {
+            resolve(document.getElementById("overlay-wait-hide").classList.remove("display-none"));
+        });
+        let x = await myPromise
+        moveAI()
+
+    }
+
+    showSpinner();
+
 }
+
+
+
+// function bestMoveAI() {
+//     let minimaxResult = minimax(0, origBoard)
+//     let nextTd = document.getElementById("td-game-" + String(minimaxResult.index + 1))
+//     origBoard[minimaxResult.index] = 0
+//     nextTd.firstChild.src = AIChar
+//     nextTd.classList.add("td-game-selected", "ai")
+//     nextTd.classList.remove("td-hover", "free")
+// }
 
 
 let player_opponent = { 1: 0, 0: 1 }
