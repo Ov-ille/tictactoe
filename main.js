@@ -1,11 +1,13 @@
 let imgsChar = document.getElementsByClassName("img-char");
 let imgsGame = document.getElementsByClassName("img-game-char");
 let allFields = document.getElementsByClassName("game-field");
+let origBoard = [9, 9, 9, 9, 9, 9, 9, 9, 9];
+let player_opponent = { 1: 0, 0: 1 }
+let firstMoveAI = minimax(0, origBoard);
 let selectedChar;
 let remainingChar;
 let AIChar;
 let emptyFields;
-let origBoard;
 
 function selectImg() {
     selectedChar = this.src
@@ -31,9 +33,7 @@ Array.from(imgsChar).forEach(element => {
 });
 
 function startGame() {
-    // intial board (9 = empty, 1 = human, 0 = ai)
     origBoard = [9, 9, 9, 9, 9, 9, 9, 9, 9];
-
     Array.from(allFields).forEach(element => {
         element.addEventListener('click', nextTurn, false);
     });
@@ -49,7 +49,13 @@ function startGame() {
 
     let firstTurn = ["ai", "human"][Math.floor(Math.random() * 2)];
     if (firstTurn == "ai") {
-        bestMoveAI()
+        // bestMoveAI()
+        let nextTd = document.getElementById("td-game-" + String(firstMoveAI.index + 1))
+        origBoard[firstMoveAI.index] = 0
+        nextTd.firstChild.src = AIChar
+        nextTd.classList.add("td-game-selected", "ai")
+        nextTd.classList.remove("td-hover", "free")
+        nextTd.removeEventListener("click", nextTurn, false)
     }
 }
 
@@ -156,7 +162,7 @@ function bestMoveAI() {
 // }
 
 
-let player_opponent = { 1: 0, 0: 1 }
+
 
 function availableSpots(board) {
     let availSpots = []
