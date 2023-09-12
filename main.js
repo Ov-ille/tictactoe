@@ -95,15 +95,18 @@ function nextTurn() {
 
 function endGame(winTie) {
     if (winTie !== false) {
-        let endtextDict = { "10": "YOU LOOSE!", "-10": "YOU WIN", "0": "IT'S A TIE!" }
+        let endtextDict = { "10": "YOU LOSE!", "-10": "YOU WIN", "0": "IT'S A TIE!" }
         if (winTie == -10) {
             document.getElementById("end-text").style.color = "green"
+            document.getElementById("end-text").style.borderColor = "green"
         }
         else if (winTie == 10) {
             document.getElementById("end-text").style.color = "red"
+            document.getElementById("end-text").style.borderColor = "red"
         }
         else {
             document.getElementById("end-text").style.color = "orange"
+            document.getElementById("end-text").style.borderColor = "orange"
         }
 
         document.getElementById("end-text").innerHTML = endtextDict[winTie]
@@ -149,19 +152,6 @@ function bestMoveAI() {
     showSpinner();
 
 }
-
-
-
-// function bestMoveAI() {
-//     let minimaxResult = minimax(0, origBoard)
-//     let nextTd = document.getElementById("td-game-" + String(minimaxResult.index + 1))
-//     origBoard[minimaxResult.index] = 0
-//     nextTd.firstChild.src = AIChar
-//     nextTd.classList.add("td-game-selected", "ai")
-//     nextTd.classList.remove("td-hover", "free")
-// }
-
-
 
 
 function availableSpots(board) {
